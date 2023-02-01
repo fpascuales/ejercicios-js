@@ -1,0 +1,16 @@
+.b-casilla{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ultra-dark);
+    background-color:var(--color-blue);
+    border: solid 1px lightgray;
+    height: 60px;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--color-blue-dark);
+    }
+    &--t{
+        color: var(--color-orange);
+    }
+}
