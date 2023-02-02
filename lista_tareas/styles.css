@@ -4,7 +4,6 @@
  * Copyright 2011-2022 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import "assets/fonts/icons/style.css";
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -4224,43 +4223,6 @@
     display: none !important;
   }
 }
-<<<<<<< HEAD:310123/styles.css
 .b-lista {
   list-style: none;
 }/*# sourceMappingURL=styles.css.map */
-=======
-:root {
-  --color: #a5a4a4;
-  --color-light: #909090;
-  --color-dark: #252525;
-  --color-very-dark: #1d1d1d;
-  --color-ultra-dark: #101010;
-  --color-blue: #57ace6;
-  --color-blue-dark: #2e76a7;
-  --color-orange: rgb(255, 105, 36);
-}
-
-body {
-  background-color: var(--color-very-dark);
-  color: var(--color);
-  font-size: 15px;
-  margin: 0;
-}
-
-.b-casilla {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-ultra-dark);
-  background-color: var(--color-blue);
-  border: solid 1px lightgray;
-  height: 60px;
-  cursor: pointer;
-}
-.b-casilla:hover {
-  background-color: var(--color-blue-dark);
-}
-.b-casilla--t {
-  color: var(--color-orange);
-}/*# sourceMappingURL=style.css.map */
->>>>>>> 8d679678771f969eedfa6cc7cedd348a58284831:hundirlaflota-v1.0/style.css
