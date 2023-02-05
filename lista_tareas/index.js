@@ -1,8 +1,22 @@
-const db = {
+import { Tarea } from "./tarea.js";
+let db = {
     tareas:[],
     tareasBorradas:[],
     id: 0
 }
+//Para mantener los datos en memoria del navegador
+const guardarCambios = () =>{
+    localStorage.setItem('tareas',JSON.stringify(db))
+}
+//Para que cuando recarguemos página, nos muestre los datos guardados
+document.addEventListener('DOMContentLoaded', () =>{
+    const dbGuardado = JSON.parse(localStorage.getItem('tareas'))
+    if(dbGuardado){
+        db = dbGuardado
+        listarTareas()
+        tareasEliminadas()
+    }
+})
 
 const listaTareas = document.querySelector('#lista-tareas')
 const listaTEliminadas = document.querySelector('#tareas-eliminadas')
@@ -23,24 +37,26 @@ divAddTarea.appendChild(inputAddTarea)
 divAddTarea.appendChild(btnAddTarea)
 listaTEliminadas.appendChild(ulTareaEliminada)
 
-const  meterTarea = () => {
+const meterTarea = () => {
     const textTarea = inputAddTarea.value.trim();
     const existeTarea = db.tareas.map(x=>x.tarea).includes(textTarea)
-        if(textTarea !== ""){
-            if(!existeTarea){
-                db.id++
-                db.tareas.push({ id: db.id, tarea: textTarea, hecha: false })
-                listarTareas()
-                inputAddTarea.value = ''
+         if(textTarea !== ""){
+            if (!existeTarea) {
+              db.id++;
+              const tareaIncluir = new Tarea(db.id, textTarea, false);
+              db.tareas.push(tareaIncluir);
+              listarTareas();
+              inputAddTarea.value = "";
             }
-            else{
-                inputAddTarea.value = "La tarea ya existe"
+            else {
+                alert("La tarea ya existe")
             }
         }
         else{
-            inputAddTarea.value = "Meta un valor correcto"
+            alert("Introduzca un valor correcto")
         }
         inputAddTarea.focus()
+        guardarCambios()
 }
 const tareasEliminadas = () => {
     ulTareaEliminada.innerHTML = ''
@@ -77,40 +93,39 @@ const listarTareas = () => {
         ulTarea.appendChild(liTarea)
         liTarea.appendChild(divTarea)
         if(tarea.hecha){
-            spanTarea.style.color = "green"
+            divTarea.style.backgroundColor = "rgb(111, 187, 104)"
+            spanTarea.style.color = "#fff"
         }
         divTarea.appendChild(spanTarea)
         divTarea.appendChild(btnTHecho)
         divTarea.appendChild(btnTBorrar)
-    }
-    botonCheck()
-}
-const botonCheck = () => {
-    for (const tarea of db.tareas) {
-        const btnTareaHecha = document.querySelector(`#btn-h${tarea.id}`)
-        const btnTareaBorrar = document.querySelector(`#btn-b${tarea.id}`)
-        btnTareaHecha.addEventListener('click',()=>{
-            completarTarea(tarea.id)
+        btnTHecho.addEventListener('click',()=>{
+            completarTarea(tarea, divTarea, spanTarea)
         })
-        btnTareaBorrar.addEventListener('click',()=>{
-            borrarTarea(tarea.id)
+        btnTBorrar.addEventListener('click',()=>{
+            borrarTarea(tarea, liTarea)
         })
     }
 }
-const completarTarea = (id) => {
-    const liCompletar = document.querySelector(`#li-${id}`)
-    const spanTarea = liCompletar.firstChild.firstChild //Preguntarle a oscar
-    spanTarea.style.color = "green"
-    db.tareas[id-1].hecha = true
+const completarTarea = (tarea, divTarea, spanTarea) => {
+    if(tarea.hecha){
+        tarea.hecha = false
+        divTarea.style.backgroundColor = "#dadada"
+        spanTarea.style.color = "#353535"
+    }
+    else{
+        tarea.hecha = true
+        divTarea.style.backgroundColor = "rgb(111, 187, 104)"
+        spanTarea.style.color = "#fff"
+    }    
+    guardarCambios()
 }
-const borrarTarea = (id) => {
-    const ul = document.querySelector('ul')
-    const liBorrar = document.querySelector(`#li-${id}`)
-    ul.removeChild(liBorrar)
-    const tareaBorrada = db.tareas.splice(id-1,1)
-    //db.tareasBorradas.push({ id: tareaBorrada[0].id, tarea: tareaBorrada[0].tarea, hecha: tareaBorrada[0].hecha })
+const borrarTarea = (tarea, liTarea) => {
+    const tareaBorrada = new Tarea(tarea.id, tarea.tarea, tarea.hecha)
     db.tareasBorradas.push(tareaBorrada)
-    //tareasEliminadas()
+    db.tareas = db.tareas.filter(t => t.id !== tarea.id)
+    ulTarea.removeChild(liTarea)
+    tareasEliminadas()
 }
 btnAddTarea.addEventListener('click',()=>{
     meterTarea()
