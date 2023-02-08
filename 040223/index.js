@@ -30,7 +30,10 @@ for (const dia of diasSemana) {
 
 
 //-------------------lo de oscar
-import { Dia } from "./dia.js"import { estadoCieloToEmoji} from './helpers.js'import {getClimaPorDiaSemana, getClimaPorDiaSemanaAsync} from './api.js'const semanaDiv = document.getElementById('div-semana')
+import { Dia } from "./dia.js"
+import { estadoCieloToEmoji} from './helpers.js'
+import {getClimaPorDiaSemana, getClimaPorDiaSemanaAsync} from './api.js'
+const semanaDiv = document.getElementById('div-semana')
 const ul = document.createElement('ul')
 semanaDiv.appendChild(ul)
 const semana = []
@@ -44,6 +47,7 @@ const diasSemana = ["lunes","martes","miercoles","jueves","viernes",
     ul.appendChild(li)
 }
 for(const dia of diasSemana){
-    //getClimaPorDiaSemana(dia,addDia)    const diaObj =  await getClimaPorDiaSemanaAsync(dia)
+    //getClimaPorDiaSemana(dia,addDia)
+      const diaObj =  await getClimaPorDiaSemanaAsync(dia)
     addDia(diaObj)
 }
