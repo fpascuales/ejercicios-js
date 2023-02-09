@@ -1,0 +1,116 @@
+.pokemon-card{
+    padding: 5px;
+    border-radius: 10px;
+    width: 200px;
+    height: 180px;
+    margin: 10px 0;
+    color: #fff;
+    &--grass{
+        background-color: var(--color-grass);
+    }
+    &--poison{
+        background-color: var(--color-poison);
+    }
+    &--fire{
+        background-color: var(--color-fire);
+    }
+    &--flying{
+        background-color: var(--color-flying);
+    }
+    &--water{
+        background-color: var(--color-water);
+    }
+    &--bug{
+        background-color: var(--color-bug);
+    }
+    &--normal{
+        background-color: var(--color-normal);
+    }
+    &--electric{
+        background-color: var(--color-electric);
+    }
+    &--ground{
+        background-color: var(--color-ground);
+    }
+    &--fairy{
+        background-color: var(--color-fairy);
+    }
+    &--fighting{
+        background-color: var(--color-fighting);
+    }
+    &--psychic{
+        background-color: var(--color-psychic);
+    }
+    &--rock{
+        background-color: var(--color-rock);
+    }
+    &--steel{
+        background-color: var(--color-steel);
+    }
+    &--ice{
+        background-color: var(--color-ice);
+    }
+    &--ghost{
+        background-color: var(--color-ghost);
+    }
+    &--dragon{
+        background-color: var(--color-dragon);
+    }
+    &--dark{
+        background-color: var(--color-dark);
+    }
+    // &:hover{
+    //     animation: bounce 0.5s linear;
+    // }
+}
+.card-header{
+    display: flex;
+    justify-content:space-between;
+    height: 20%;
+}
+.card-num{
+    color: var(--color-num);
+}
+
+.card-body{
+    display: flex;
+    justify-content: space-between;
+    height: 80%;
+    background-image: url("/pokedex/assets/images/pokeball.png");
+}
+.card-types{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+.card-type{
+    padding: 3px 10px;
+    margin: 2px 0;
+    text-align: center;
+    border-radius: 30px;
+    background-color: var(--color-type);
+}
+.card-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
+// .card-pokemon-img{
+//     height: 150px;
+// }
+
+
+// @keyframes bounce {
+//     20% {
+//       transform: translateY(-6px);
+//     }
+//     40% {
+//       transform: translateY(0px);
+//     }
+//     60% {
+//       transform: translateY(-2px);
+//     }
+//     80% {
+//       transform: translateY(-0px);
+//     }
+//   }

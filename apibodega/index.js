@@ -1,8 +1,30 @@
 import { cargarVinos } from "./api.js";
-document.addEventListener('DOMContentLoaded', async ()=>{
-    const vinos = await cargarVinos()
-    pintarVinos(vinos)
-})
+document.addEventListener("DOMContentLoaded", async () => {
+  const vinos = await cargarVinos();
+  console.log(vinos);
+  const btnTintos = document.getElementById("btn-tintos");
+  const btnBlancos = document.getElementById("btn-blancos");
+  const btnRosados = document.getElementById("btn-rosados");
+  const btnEspumosos = document.getElementById("btn-espumosos");
+  btnTintos.addEventListener("click", () => {
+    pintarVinos(vinos[0]);
+  });
+  btnBlancos.addEventListener("click", () => {
+    pintarVinos(vinos[1]);
+  });
+  btnRosados.addEventListener("click", () => {
+    pintarVinos(vinos[2]);
+  });
+  btnEspumosos.addEventListener("click", () => {
+    pintarVinos(vinos[3]);
+  });
+});
+
+// import { cargarVinos } from "./api.js";
+// document.addEventListener('DOMContentLoaded', async ()=>{
+//     const vinos = await cargarVinos()
+//     pintarVinos(vinos)
+// })
 
 const divContenedor$$ = document.querySelector('#contenedor')
 const pintarVinos = (vinos) => {

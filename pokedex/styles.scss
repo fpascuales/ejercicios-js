@@ -1,6 +1,12 @@
-/*BOOTSTRAP*/
-@import "node_modules/bootstrap/scss/bootstrap-grid.scss";
+//ICONS
+
+//SETTINGS
+@import"styles/settings/colors.settings";
 
 //ELEMENTS
-@import"styles/elements/body.elements.scss";
-@import"styles/elements/ol.elements.scss";
+@import"styles/elements/body.elements";
+@import"styles/elements/ol.elements"; //MIRAR SI LO NECESITO
+
+//BLOCKS
+@import"styles/blocks/pokemon.card.blocks";
+@import"styles/blocks/type.card.blocks";
