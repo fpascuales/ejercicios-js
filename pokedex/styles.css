@@ -25,6 +25,11 @@
   --color-stats: #e6b6afb6;
 }
 
+@media (max-width: 992px) {
+  .ficha {
+    display: none;
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -68,7 +73,7 @@ body {
 }
 @media (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1200px !important;
+    max-width: 1110px !important;
   }
 }
 @font-face {
@@ -85,17 +90,19 @@ h4 {
 }
 
 .ficha {
-  padding: 0 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: var(--color-num);
   border-left: solid 1px var(--color-dark);
 }
 
 .ficha-pokemon {
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .ficha-header {
   display: flex;
+  margin: 0 20px;
 }
 
 .pokemon-num {
@@ -109,12 +116,19 @@ h4 {
   text-transform: capitalize;
 }
 
+.ficha-img {
+  position: relative;
+  height: 300px;
+}
+
 .pokemon-img {
+  position: absolute;
+  left: -25px;
   height: 300px;
 }
 
 .ficha-types, .ficha-stats {
-  margin-top: 10px;
+  margin: 10px 20px 0 20px;
 }
 
 .ficha-stat {
@@ -143,6 +157,10 @@ h4 {
 }
 .span-stat--value {
   margin-left: 10px;
+}
+
+.ficha-abilities {
+  margin: 0 20px;
 }
 
 .menu {
@@ -354,7 +372,7 @@ h4 {
 }
 
 .card-pokemon-img {
-  height: 150px;
+  height: 130px;
 }
 .card-pokemon-img:hover {
   animation: bounce 2s linear;

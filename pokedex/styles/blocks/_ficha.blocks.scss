@@ -1,13 +1,15 @@
 .ficha{
-    padding: 0 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
     background-color: var(--color-num);
     border-left: solid 1px var(--color-dark);
 }
 .ficha-pokemon{
-    margin-top: 80px;
+    margin-top: 40px;
 }
 .ficha-header{
     display: flex;
+    margin: 0 20px;
 }
 .pokemon-num{
     font-size: 35px;
@@ -18,13 +20,19 @@
     font-family: Pokemon;
     text-transform: capitalize;
 }
-// .ficha-img{}
+.ficha-img{
+    position: relative;
+    height: 300px;
+}
 
 .pokemon-img{
+    position: absolute;
+    left: -25px;
     height: 300px;
 }
 .ficha-types, .ficha-stats{
-    margin-top: 10px;
+    margin: 10px 20px 0 20px;
+
 }
 .ficha-stat{
     width: 100%;
@@ -50,4 +58,7 @@
     &--value{
         margin-left: 10px;
     }
+}
+.ficha-abilities{
+    margin: 0 20px;   
 }

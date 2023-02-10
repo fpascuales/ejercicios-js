@@ -198,12 +198,11 @@
     align-items: center;
 }   
 .card-pokemon-img{
-    height: 150px;
+    height: 130px;
     &:hover{
         animation: bounce 2s linear;
     }
 }
-
 
 @keyframes bounce {
     20% {
