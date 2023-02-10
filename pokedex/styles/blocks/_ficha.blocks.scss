@@ -20,15 +20,11 @@
     font-family: Pokemon;
     text-transform: capitalize;
 }
-.ficha-img{
-    position: relative;
-    height: 300px;
-}
+// .ficha-img{
+// }
 
 .pokemon-img{
-    position: absolute;
-    left: -25px;
-    height: 300px;
+    width: 100%;
 }
 .ficha-types, .ficha-stats{
     margin: 10px 20px 0 20px;
@@ -61,4 +57,8 @@
 }
 .ficha-abilities{
     margin: 0 20px;   
+}
+.abilities-list{
+    display: flex;
+    flex-wrap: wrap;
 }

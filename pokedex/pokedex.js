@@ -242,17 +242,22 @@ const drawPokemonFile = async (pokemon) => {
 
     fichaAbilities$$.appendChild(pokemonAbilities$$)
 
+    const abilitiesList$$ = document.createElement("div")
+    abilitiesList$$.className = "abilities-list"
+
     for (const ability of pokemon[0].abilities) {
         const pokemonAbility$$ = document.createElement("span")
         pokemonAbility$$.className = "card-type"
         pokemonAbility$$.innerHTML = ability.name
-        fichaAbilities$$.appendChild(pokemonAbility$$)
+        abilitiesList$$.appendChild(pokemonAbility$$)
     }  
 
     fichaHeader$$.appendChild(pokemonNum$$)
     fichaHeader$$.appendChild(pokemonName$$)
 
     fichaImg$$.appendChild(pokemonImg$$)
+
+    fichaAbilities$$.appendChild(abilitiesList$$)
 
     fichaPokemon$$.appendChild(fichaHeader$$)
     fichaPokemon$$.appendChild(fichaImg$$)
