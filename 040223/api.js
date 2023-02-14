@@ -24,25 +24,25 @@
 
 // //------------------ lo de oscar
 
-// export function getClimaPorDiaSemana(dia,cb){
-//     console.log(cb)
-//     // llamada a la api    fetch(`https://meteo-de-oscar.proxy.beeceptor.com/${dia}`)
-//     .then(function (resultado){
-//         resultado.json()
-//         .then(function(diaObj){
-//             console.log(dia)
-//             cb(diaObj)
-//         })
-//         .catch(function(err){
-//             console.log(dia, err)
-//         })
-//     })
-//     .catch(function (err){
-//         console.log(err)
-//     })
-//     // devolver el resultado
-// }
-//Función hacinéndola con await y async
+export function getClimaPorDiaSemana(dia,cb){
+    console.log(cb)
+    // llamada a la api    fetch(`https://meteo-de-oscar.proxy.beeceptor.com/${dia}`)
+    .then(function (resultado){
+        resultado.json()
+        .then(function(diaObj){
+            console.log(dia)
+            cb(diaObj)
+        })
+        .catch(function(err){
+            console.log(dia, err)
+        })
+    })
+    .catch(function (err){
+        console.log(err)
+    })
+    // devolver el resultado
+}
+//Función hacinéndola con async y await
 export async function getClimaPorDiaSemana(dia){
     const resultado = await fetch(`https://meteo-de-oscar.proxy.beeceptor.com/${dia}`)
     const diaObj = await resultado.json()

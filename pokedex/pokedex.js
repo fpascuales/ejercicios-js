@@ -82,7 +82,6 @@ const drawPokemons = (pokemons) => {
 
 const drawSearch = (pokemons) => {
     const inputSearch$$ = document.querySelector('.input-search')
-    // const btnSearch$$ = document.querySelector('.btn-search')
     let tempSearch = null
     inputSearch$$.addEventListener("keyup", () => {
         if(tempSearch){
@@ -93,9 +92,6 @@ const drawSearch = (pokemons) => {
         }, 1*1000)
         
     })
-    // inputSearch$$.addEventListener("input", () => {
-    //     searchPokemonsByName(input$$.value, pokemons)
-    // })
 }
 
 const searchPokemonsByName = (filtro, pokemons) => {
@@ -152,7 +148,6 @@ const searchPokemonFile = (filtro, pokemons) => {
 }
 
 const drawPokemonFile = async (pokemon) => {
-    console.log(pokemon);
     const abilities = await getPokemonsAbilities(pokemon[0].abilities)
     // const filteredAbilities = filterAbilities(abilities)
     const divFicha = document.querySelector('#div-ficha')
