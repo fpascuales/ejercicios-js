@@ -30,6 +30,11 @@
     display: none;
   }
 }
+a {
+  color: var(--color);
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   padding: 0;

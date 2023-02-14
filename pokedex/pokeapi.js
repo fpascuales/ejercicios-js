@@ -1,6 +1,6 @@
 export async function getPokemonsFromApi(){
     const pokemonArray = []
-    for (let i = 1; i <= 999; i++){
+    for (let i = 1; i <= 200; i++){
     const pokemonCazado = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
     const pokemonObj = await pokemonCazado.json()
     pokemonArray.push(pokemonObj)

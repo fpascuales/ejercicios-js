@@ -89,8 +89,9 @@ const drawSearch = (pokemons) => {
         }
         tempSearch = setTimeout(() => {
             searchPokemonsByName(inputSearch$$.value, pokemons)
+            inputSearch$$.value = ''
         }, 1*1000)
-        
+
     })
 }
 
