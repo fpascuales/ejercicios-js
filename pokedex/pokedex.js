@@ -1,5 +1,4 @@
-import { getPokemonsFromApi } from "./pokeapi.js";
-import { getPokemonsAbilities } from "./pokeapi.js";
+import { getPokemonsFromApi, getPokemonsAbilities } from "./pokeapi.js";
 
 document.addEventListener('DOMContentLoaded', async () =>{
     const pokemons = await getPokemonsFromApi()
@@ -142,12 +141,13 @@ const searchPokemonFile = (filtro, pokemons) => {
     const divPokemon = document.querySelector(`#${filtro}`)
     divPokemon.addEventListener('click', () => {
         const filteredPokemon = pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(filtro.toLowerCase()))
-        drawPokemonFile(filteredPokemon)
+        drawPokemonFile(filteredPokemon[0])
     })
 }
 
 const drawPokemonFile = async (pokemon) => {
-    const abilities = await getPokemonsAbilities(pokemon[0].abilities)
+    console.log(pokemon);
+    const abilities = await getPokemonsAbilities(pokemon.abilities)
     // const filteredAbilities = filterAbilities(abilities)
     const divFicha = document.querySelector('#div-ficha')
     divFicha.innerHTML = ''
@@ -160,18 +160,18 @@ const drawPokemonFile = async (pokemon) => {
 
     const pokemonNum$$ = document.createElement("h3")
     pokemonNum$$.className = "pokemon-num"
-    pokemonNum$$.innerHTML = `#${pokemon[0].id}`
+    pokemonNum$$.innerHTML = `#${pokemon.id}`
 
     const pokemonName$$ = document.createElement("h3")
     pokemonName$$.className = "pokemon-name"
-    pokemonName$$.innerHTML = pokemon[0].name
+    pokemonName$$.innerHTML = pokemon.name
 
     const fichaImg$$ = document.createElement("div")
     fichaImg$$.className = "ficha-img"
     
     const pokemonImg$$ = document.createElement("img")
-    pokemonImg$$.setAttribute("src", pokemon[0].image)
-    pokemonImg$$.setAttribute("alt", pokemon[0].name)
+    pokemonImg$$.setAttribute("src", pokemon.image)
+    pokemonImg$$.setAttribute("alt", pokemon.name)
     pokemonImg$$.className = "pokemon-img"
 
     const fichaTypes$$ = document.createElement("div")
@@ -182,7 +182,7 @@ const drawPokemonFile = async (pokemon) => {
 
     fichaTypes$$.appendChild(pokemonTypes$$)
 
-    for (const type of pokemon[0].type) {
+    for (const type of pokemon.type) {
         const pokemonType$$ = document.createElement("span")
         pokemonType$$.className = "card-type"
         pokemonType$$.innerHTML = type
@@ -197,7 +197,7 @@ const drawPokemonFile = async (pokemon) => {
 
     fichaStats$$.appendChild(pokemonStats$$)
     
-    for (const stat of pokemon[0].stats) {
+    for (const stat of pokemon.stats) {
         const divStat$$ = document.createElement("div")
         divStat$$.className = "ficha-stat"
 
@@ -239,7 +239,7 @@ const drawPokemonFile = async (pokemon) => {
     const abilitiesList$$ = document.createElement("div")
     abilitiesList$$.className = "abilities-list"
 
-    for (const ability of pokemon[0].abilities) {
+    for (const ability of pokemon.abilities) {
         const pokemonAbility$$ = document.createElement("span")
         pokemonAbility$$.className = "card-type"
         pokemonAbility$$.innerHTML = ability.name
