@@ -30,7 +30,6 @@ const drawPokemons = (pokemons) => {
 
         pokemonDiv$$.setAttribute("id", pokemon.name)
         pokemonDiv$$.className = `pokemon-card pokemon-card--${pokemon.typeClass} col-5 col-md-5 col-lg-2`
-        pokemonDiv$$.style.cursor = "pointer" //METER EN LA HOJA DE ESTILOS
 
         const cardHeader$$ = document.createElement("div")
         cardHeader$$.className = "card-header"
@@ -112,7 +111,6 @@ const drawTypesMenu = (pokemons) => {
                 const divType$$ = document.createElement("div")
                 divType$$.setAttribute("id", type)
                 divType$$.className = `type-card type-card--${type} col-md-4`
-                divType$$.style.cursor = "pointer" //METER EN LA HOJA DE ESTILOS
 
                 const nameType$$ = document.createElement("span")
                 nameType$$.className = "menu-type"
